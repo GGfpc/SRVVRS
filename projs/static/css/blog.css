@@ -1,0 +1,18 @@
+.col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+
+ .projs h2 {
+  font-weight: normal;
+}
+.col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.head h1 {
+    color: blue
+}
+
+h2 {
+    color: red
+}

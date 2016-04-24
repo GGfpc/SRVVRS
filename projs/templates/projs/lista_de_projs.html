@@ -1,21 +1,61 @@
 <!DOCTYPE html>
+
+{% load staticfiles %}
 <html lang="en">
 <head>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
     <meta charset="UTF-8">
     <title>Projectos</title>
 </head>
 <body>
-    <div>
+
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SitePR</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="Projectos">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+     </nav>
+
+
+
+    <div class="head">
         <h1>Parte dos Projectos</h1>
     </div>
 
+    <div class="projs"></div>
     {% for p in post %}
-    <div >
-        <h2>Nome: {{ p.titulo }}</h2>
-        <p>--Autor: {{p.autor }}</p>
-        <p>Votos: {{p.votos }}</p>
+
+    <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>  Nome: {{ p.titulo }}</h2>
+            <h4>Autor: {{p.autor }}</h4>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+          <p><a class="btn btn-default" href="#" role="button">Votar</a></p>
+    </div><!-- /.col-lg-4 -->
+    {% endfor %}
 
     </div>
-    {% endfor %}
+
+
 </body>
 </html>
