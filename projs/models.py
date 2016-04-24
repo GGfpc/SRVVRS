@@ -14,6 +14,7 @@ class Projecto(models.Model):
     titulo = models.CharField(max_length=500)
     texto = models.TextField
     data = models.DateTimeField(default=timezone.now)
+    votos = models.IntegerField(default=0)
 
     def publicaProj(self):
         self.data = timezone.now()

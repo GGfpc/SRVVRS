@@ -45,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/projs/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -53,10 +53,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projs/admin.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projs/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projs/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.13833992">
+              <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lista_de_projs.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projs/templates/projs/lista_de_projs.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.666667">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projs/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
               <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -67,12 +101,24 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/PR/settings.py" />
-        <option value="$PROJECT_DIR$/projs/models.py" />
         <option value="$PROJECT_DIR$/projs/admin.py" />
+        <option value="$PROJECT_DIR$/projs/models.py" />
+        <option value="$PROJECT_DIR$/PR/urls.py" />
+        <option value="$PROJECT_DIR$/projs/urls.py" />
+        <option value="$PROJECT_DIR$/projs/templates/projs/lista_de_projs.html" />
+        <option value="$PROJECT_DIR$/projs/views.py" />
       </list>
     </option>
   </component>
@@ -150,6 +196,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="projs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="PR" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -163,8 +231,12 @@
     <property name="last_opened_file_path" value="$USER_HOME$/sitepr" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -328,7 +400,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -336,6 +410,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projs/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PR/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41501975">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -351,7 +443,7 @@
     <entry file="file://$PROJECT_DIR$/projs/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -360,10 +452,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projs/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13833992">
+        <state vertical-scroll-proportion="0.0">
           <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projs/templates/projs/lista_de_projs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.666667">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projs/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13833992">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

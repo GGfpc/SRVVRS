@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projectos</title>
+</head>
+<body>
+    <div>
+        <h1>Parte dos Projectos</h1>
+    </div>
+
+    {% for p in post %}
+    <div >
+        <h2>Nome: {{ p.titulo }}</h2>
+        <p>--Autor: {{p.autor }}</p>
+        <p>Votos: {{p.votos }}</p>
+
+    </div>
+    {% endfor %}
+</body>
+</html>
