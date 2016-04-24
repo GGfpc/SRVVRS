@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -34,26 +34,30 @@
       </div>
     </nav>
 
-     </nav>
 
 
-
-    <div class="head">
-        <h1>Parte dos Projectos</h1>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Os nossos projectos</h1>
+        <p>Aqui pode encontrar os nossos projectos. Vote nos que mais gosta e aparecerão primeiro</p>
+      </div>
     </div>
 
-    <div class="projs"></div>
-    {% for p in post %}
 
-    <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>  Nome: {{ p.titulo }}</h2>
-            <h4>Autor: {{p.autor }}</h4>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">Votar</a></p>
-    </div><!-- /.col-lg-4 -->
-    {% endfor %}
-
+    <div class="projs">
+        {% for p in post %}
+        <form action="{% url 'projs:voto' p.id %}" method="post">
+            {% csrf_token %}
+        <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+             <h2>{{ p.titulo }}</h2>
+             <h4>Autor: {{p.autor }}</h4>
+             <p>{{ p.votos }}</p>
+             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+             <p><input type="submit" class="btn btn-default btn-lg" value="Votar"></input></p>
+        </div><!-- /.col-lg-4 -->
+            </form>
+        {% endfor %}
     </div>
 
 

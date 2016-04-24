@@ -1,18 +1,21 @@
 .col-lg-4 {
   margin-bottom: 20px;
   text-align: center;
-
- .projs h2 {
-  font-weight: normal;
-}
-.col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-.head h1 {
-    color: blue
 }
 
 h2 {
-    color: red
+  font-weight: normal;
+}
+
+.jumbotron{
+    padding-top: 100px;
+
+}
+
+.col-lg-4 p {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+.head h1 {
+    color: blue
 }
