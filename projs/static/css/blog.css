@@ -1,15 +1,23 @@
 .col-lg-4 {
   margin-bottom: 20px;
   text-align: center;
+   animation-name: fadein;
+  animation-duration:1s;
 }
 
 h2 {
   font-weight: normal;
+
 }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 
 .jumbotron{
     padding-top: 100px;
-
 }
 
 .col-lg-4 p {
@@ -19,3 +27,5 @@ h2 {
 .head h1 {
     color: blue
 }
+
+
