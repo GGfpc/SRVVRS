@@ -2,19 +2,19 @@ $(document).ready( function() {
 
     $("#go1").click(function() {
         $('html, body').animate({
-            scrollTop: $("#1").offset().top
+            scrollTop: $("#um").offset().top
         }, 500);
     });
 
      $("#go2").click(function() {
         $('html, body').animate({
-            scrollTop: $("#2").offset().top
+            scrollTop: $("#dois").offset().top
         }, 500);
     });
 
      $("#go3").click(function() {
         $('html, body').animate({
-            scrollTop: $("#3").offset().top
+            scrollTop: $("#tres").offset().top
         }, 500);
     });
 

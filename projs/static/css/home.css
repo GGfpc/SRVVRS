@@ -5,8 +5,7 @@
 body {
 
   padding-bottom: 40px;
-  padding-left: 100px;
-  padding-right: 100px;
+
   color: #5a5a5a;
 }
 
@@ -29,55 +28,11 @@ body {
   padding-left: 0;
 }
 .navbar-wrapper .navbar {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 .navbar-wrapper .navbar .container {
   width: auto;
-}
-
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  height: 500px;
-  margin-bottom: 60px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 500px;
-  background-color: #777;
-}
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
-}
-
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: normal;
-}
-.marketing .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 
@@ -97,8 +52,31 @@ body {
 
 .height-full {
   height: 100vh;
-   display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+#um {
+  background-image: url("http://wallup.net/wp-content/uploads/2016/01/112559-Abduzeedo-dragon-digital_art-Justin_Maller-Facets.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#dois {
+  background-image: url("https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-20340.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#tres {
+  background-image: url("http://www.wall321.com/download/view?resolution=2560x1600&file=MTkyMHgxMjAwLzIwMTIxMTExL2Fic3RyYWN0IGJsYWNrIGRhcmsgY2dpIGRpZ2l0YWwgYXJ0IGFydHdvcmsgZWxlcGhhbnRzIGp1c3RpbiBtYWxsZXIgMTkyMHgxMjAwIHdhbGxwYXBlcl93d3cud2FsbDMyMS5jb21fNzcuanBn&name=YWJzdHJhY3RfYmxhY2tfZGFya19jZ2lfZGlnaXRhbF9hcnRfYXJ0d29ya19lbGVwaGFudHNfanVzdGluX21hbGxlcl8xOTIweDEyMDBfd2FsbHBhcGVy");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 
