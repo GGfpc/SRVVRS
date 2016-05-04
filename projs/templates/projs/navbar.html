@@ -1,25 +1,10 @@
 <!DOCTYPE html>
-
-{% load staticfiles %}
 <html lang="en">
 <head>
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/animate.js' %}"></script>
-
-
-
     <meta charset="UTF-8">
-    <title>Projectos</title>
+    <title>Title</title>
 </head>
 <body>
-
 
 <div class="navbar-wrapper">
       <div class="container">
@@ -38,18 +23,20 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-
+                <li><a href="#about" id="go1">Vai 1</a></li>
+                <li><a href="#contact" id="go2">Vai 2</a></li>
+                  <li><a href="#contact" id="go3">Vai 3</a></li>
               </ul>
                 <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
 
             {% if user.is_authenticated  != True %}
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-			<ul id="logout" class="dropdown-menu">
+			<ul id="login-dp" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
-								 <form action="{% url 'projs:logging' %}" method="post">
+								 <form action="{% url 'projs:home' %}" method="post">
                                      {% csrf_token %}
 										<div class="form-group">
 											 <label>Email address</label>
@@ -75,13 +62,13 @@
 			</ul>
            {% else %}
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{ user.get_username }}</b> <span class="caret"></span></a>
-			<ul id="login" class="dropdown-menu">
+			<ul id="logout" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
-                                 <form action="{% url 'projs:logging' %}" method="post">
+                                 <form action="{% url 'projs:home' %}" method="post">
                                      {% csrf_token %}
-                                     <button type="submit" class="btn btn-primary btn-block" name="logout" >Logout</button>
+                                     <button type="submit" name="logout" >Logout</button>
                                  </form>
 							</div>
 					 </div>
@@ -98,35 +85,8 @@
     </div>
 
 
-
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Os nossos projectos</h1>
-        <p>Aqui pode encontrar os nossos projectos. Vote nos que mais gosta e aparecerão primeiro</p>
-      </div>
-    </div>
-
-    <div class="animation-element slide-left testimonial">
-    <div class="projs">
-        {% for p in post %}
-        <form action="{% url 'projs:voto' p.id %}" method="post">
-            {% csrf_token %}
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-             <h2>{{ p.titulo }}</h2>
-             <h4>Autor: {{p.autor }}</h4>
-             <p>{{ p.votos }}</p>
-             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-             <p><input type="submit" class="btn btn-default btn-lg" value="Votar"></p>
-        </div><!-- /.col-lg-4 -->
-            </form>
-        {% endfor %}
-    </div>
-        </div>
-
+            {% block content %}
+            {% endblock %}
 
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </html>
