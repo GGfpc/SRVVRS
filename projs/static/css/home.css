@@ -9,31 +9,9 @@ body {
   color: #5a5a5a;
 }
 
+.revealOnScroll { opacity: 0; }
 
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
 
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-}
-
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.navbar-wrapper .navbar .container {
-  width: auto;
-}
 
 
 /* Featurettes
@@ -59,33 +37,25 @@ body {
 }
 
 #um {
-  background-image: url("http://wallup.net/wp-content/uploads/2016/01/112559-Abduzeedo-dragon-digital_art-Justin_Maller-Facets.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+
 }
 
-#login-dp{
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow:hidden;
-    background-color:rgba(255,255,255,.8);
-    animation-name: fadein;
-  animation-duration:0.3s;
+
+
+
+.animation-element {
+  -webkit-animation-duration: 1s; /*This is the animation duration */
+    -webkit-animation-delay: -300ms;
+
+
 }
 
 #dois {
-  background-image: url("https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-20340.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+
 }
 
 #tres {
-  background-image: url("http://www.wall321.com/download/view?resolution=2560x1600&file=MTkyMHgxMjAwLzIwMTIxMTExL2Fic3RyYWN0IGJsYWNrIGRhcmsgY2dpIGRpZ2l0YWwgYXJ0IGFydHdvcmsgZWxlcGhhbnRzIGp1c3RpbiBtYWxsZXIgMTkyMHgxMjAwIHdhbGxwYXBlcl93d3cud2FsbDMyMS5jb21fNzcuanBn&name=YWJzdHJhY3RfYmxhY2tfZGFya19jZ2lfZGlnaXRhbF9hcnRfYXJ0d29ya19lbGVwaGFudHNfanVzdGluX21hbGxlcl8xOTIweDEyMDBfd2FsbHBhcGVy");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+
 }
 
 

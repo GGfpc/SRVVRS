@@ -4,14 +4,15 @@
 <html lang="en">
 <head>
 
-     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
+
 
 
     <meta charset="UTF-8">
@@ -42,22 +43,26 @@
               </ul>
                 <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
+
+            {% if user.is_authenticated  != True %}
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-			<ul id="login-dp" class="dropdown-menu">
+			<ul id="login" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
-								 <form class="form" >
+								 <form action="{% url 'projs:logging' %}" method="post">
+                                     {% csrf_token %}
 										<div class="form-group">
 											 <label>Email address</label>
-											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+											 <input type="text" class="form-control" name="email" placeholder="Email address" required>
 										</div>
 										<div class="form-group">
 											 <label>Password</label>
-											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+											 <input type="password" class="form-control" name="pwd" placeholder="Password" required>
 										</div>
 										<div class="form-group">
-											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+
 										</div>
 										<div class="checkbox">
 											 <label>
@@ -69,6 +74,21 @@
 					 </div>
 				</li>
 			</ul>
+           {% else %}
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{ user.get_username }}</b> <span class="caret"></span></a>
+			<ul id="logout" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+                                 <form action="{% url 'projs:logging' %}" method="post">
+                                     {% csrf_token %}
+                                     <button type="submit" class="btn btn-primary btn-block" name="logout" >Logout</button>
+                                 </form>
+							</div>
+					 </div>
+				</li>
+			</ul>
+            {% endif %}
         </li>
       </ul>
             </div>
@@ -104,13 +124,19 @@
     <div class="container-fluid height-full bg-dark" id="tres">
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <h2 class="featurette-heading">A mais linda. <span class="text-muted">She'll blow your mind.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
+          <div class="animation-element" data-animation="fadeInRight">
       </div>
         </div>
 
 
 
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/animate.js' %}"></script>
 </html>
