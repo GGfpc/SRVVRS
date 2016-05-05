@@ -18,7 +18,16 @@
 .navbar-wrapper .navbar {
   padding-right: 15px;
   padding-left: 15px;
+
 }
 .navbar-wrapper .navbar .container {
   width: auto;
+}
+.navbar{
+   background: transparent;
+   border-color: transparent;
+}
+.active{
+background:white
+background:rgba(0,0,0,0.5);
 }

@@ -5,13 +5,14 @@
 body {
 
   padding-bottom: 40px;
-
   color: #5a5a5a;
 }
 
 .revealOnScroll { opacity: 0; }
 
-
+.h2{
+ color: white;
+ }
 
 
 /* Featurettes
@@ -26,6 +27,7 @@ body {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
+  font-color:white;
 }
 
 .height-full {
@@ -37,7 +39,10 @@ body {
 }
 
 #um {
-
+background: url("https://images8.alphacoders.com/548/548694.jpg");
+ background-size:cover;
+background-repeat: no-repeat;
+background-position: center center;
 }
 
 
@@ -45,17 +50,17 @@ body {
 
 .animation-element {
   -webkit-animation-duration: 1s; /*This is the animation duration */
-    -webkit-animation-delay: -300ms;
+   -webkit-animation-delay: -300ms;
 
 
 }
 
 #dois {
-
+background:#2E112D;
 }
 
 #tres {
-
+background:#2E112D;
 }
 
 
