@@ -11,12 +11,13 @@ class Empregado(models.Model):
     def __str__(self):
         return self.nome + " - " + self.titulo
 
+
 class Projecto(models.Model):
     autor = models.ForeignKey(Empregado,on_delete=models.CASCADE)
     titulo = models.CharField(max_length=500)
-    texto = models.TextField
-    data = models.DateTimeField(default=timezone.now)
     votos = models.IntegerField(default=0)
+    texto = models.TextField(max_length=2000,default="")
+    data = models.DateTimeField(default=timezone.now)
 
     def publicaProj(self):
         self.data = timezone.now()
@@ -25,3 +26,11 @@ class Projecto(models.Model):
     def __str__(self):
         return self.titulo
 
+class Comentario(models.Model):
+    proj = models.ForeignKey(Projecto, on_delete=models.CASCADE)
+    autor = models.CharField(max_length=200)
+    texto = models.TextField(max_length=2000,default="")
+    data = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.autor

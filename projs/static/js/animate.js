@@ -13,7 +13,7 @@ function check_if_in_view() {
     var element_height = $element.outerHeight();
     var element_top_position = $element.offset().top;
     var element_bottom_position = (element_top_position + element_height);
-
+    var inview = element_top_position <= window_bottom_position ;
     //check to see if this current container is within viewport
     if ((element_bottom_position >= window_top_position) &&
         (element_top_position <= window_bottom_position)) {

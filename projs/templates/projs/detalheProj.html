@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Item - Start Bootstrap Template</title>
+
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/detalhe.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+
+              </ul>
+                <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+
+            {% if user.is_authenticated  != True %}
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+			<ul id="logout" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+								 <form action="{% url 'projs:logging' %}" method="post">
+                                     {% csrf_token %}
+										<div class="form-group">
+											 <label>Email address</label>
+											 <input type="text" class="form-control" name="email" placeholder="Email address" required>
+										</div>
+										<div class="form-group">
+											 <label>Password</label>
+											 <input type="password" class="form-control" name="pwd" placeholder="Password" required>
+										</div>
+										<div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+
+										</div>
+										<div class="checkbox">
+											 <label>
+											 <input type="checkbox"> keep me logged-in
+											 </label>
+										</div>
+								 </form>
+							</div>
+					 </div>
+				</li>
+			</ul>
+           {% else %}
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{ user.get_username }}</b> <span class="caret"></span></a>
+			<ul id="login" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+                                 <form action="{% url 'projs:logging' %}" method="post">
+                                     {% csrf_token %}
+                                     <button type="submit" class="btn btn-primary btn-block" name="logout" >Logout</button>
+                                 </form>
+							</div>
+					 </div>
+				</li>
+			</ul>
+            {% endif %}
+        </li>
+      </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Shop Name</p>
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">Category 1</a>
+                    <a href="#" class="list-group-item">Category 2</a>
+                    <a href="#" class="list-group-item">Category 3</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                    <div class="caption-full">
+
+                        <h2>{{ post.titulo }}</h2>
+
+                        <h4>{{ post.autor }}.</h4>
+                        <p>{{ post.texto }} </p>
+
+                        <h3 class="pull-right">{{post.votos}} votos</h3>
+                        <br>
+                        <br>
+
+                </div>
+
+                <div class="well">
+
+                    <div class="text-right">
+                       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Comentar</button>
+                    </div>
+
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Escrever um comentário</h4>
+                          </div>
+                          <div class="modal-body">
+                            <form action="{% url 'projs:comentario' post.id %}" method="post" id="comentar">
+                                     {% csrf_token %}
+
+										<div class="form-group">
+											 <label>Nome:</label>
+                                                 {% if "nome" not in request.session %}
+											 <input type="text" class="form-control" name="name" placeholder="Nome" required>
+                                            {% else %}
+                                            <span>{{request.session.nome}}</span>
+                                            {% endif %}
+										</div>
+
+                                        <label>Escreva o seu comentário:</label>
+                                        <textarea name="comment" id="texto-comment" class="form-control" placeholder="Escreva aqui" form="comentar"></textarea>
+
+
+
+
+
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
+                            </form>
+                               </div>
+                        </div>
+                      </div>
+</div>
+
+                    <hr>
+                    {% for c in lista %}
+                    <div class="row animation-element" data-animation="fadeInUp">
+                        <div class="col-md-12">
+                            <h4>{{c.autor}}</h4>
+                            <span class="pull-right">{{c.data}}</span>
+                            <p>{{c.texto}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+
+      <div class="animation-element" data-animation="fadeInRight">
+          <img  src="http://icons.iconarchive.com/icons/martz90/circle/512/camera-icon.png">
+      </div>
+    </div>
+
+ </body>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/animate.js' %}"></script>
+</html>
