@@ -1,0 +1,31 @@
+.form-signin{
+    max-width: 300px;
+    margin: auto;
+    background:white;
+    padding-top:20px;
+    padding-bottom:40px;
+    padding-left:10px;
+    padding-right: 10px;
+    border-radius:10px;
+    text-align:center;
+    background-color:rgba(255, 255, 255, 0.7);
+}
+
+.form-control{
+   margin:5px 10px 10px 0px;
+
+}
+
+.container{
+    padding-top: 150px;
+
+}
+
+body{
+height:100vh;
+background: url("http://technozed.com/wp-content/uploads/2016/03/firewatch-wallpaper-7.jpg");
+background-size:cover;
+background-repeat: no-repeat;
+background-position: center center;
+
+}

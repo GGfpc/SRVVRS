@@ -4,6 +4,8 @@ from .models import Projecto, Comentario
 from time import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
+from django import forms
+import time
 
 def lista_de_projs(request):
 
@@ -32,10 +34,12 @@ def logging(request):
                         login(request, user)
                         print(user.is_authenticated())
                         return HttpResponseRedirect("/home")
+                else:
+                    return render(request,'projs/login.html',{})
 
 
 def voto(request, post_id):
-
+    post = Projecto.objects.get(id=post_id)
     post.votos += 1
     post.save()
     return HttpResponseRedirect("/")
@@ -49,12 +53,12 @@ def comentario(request, post_id):
 
     if("nome" not in session):
         nome = request.POST['name']
-        session["nome"] = nome;
+        session["nome"] = nome
 
     if("nrcomments" not in session):
-        session["nrcomments"] = 1;
+        session["nrcomments"] = 1
     else:
-        session["nrcomments"] += 1;
+        session["nrcomments"] += 1
 
     if(session["nrcomments"] <= 3):
         post = post = Projecto.objects.get(id=post_id)

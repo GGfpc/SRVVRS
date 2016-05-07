@@ -4,8 +4,8 @@
 
 body {
 
-  padding-bottom: 40px;
-  color: #5a5a5a;
+
+  color: background:#0F1E25;
 }
 
 .revealOnScroll { opacity: 0; }
@@ -30,6 +30,12 @@ body {
   font-color:white;
 }
 
+#comment-title{
+    margin-top:-10px;
+}
+
+
+
 .height-full {
   height: 100vh;
   display: flex;
@@ -39,7 +45,7 @@ body {
 }
 
 #um {
-background: url("https://images8.alphacoders.com/548/548694.jpg");
+background: url("http://technozed.com/wp-content/uploads/2016/03/firewatch-wallpaper-7.jpg");
  background-size:cover;
 background-repeat: no-repeat;
 background-position: center center;
@@ -49,19 +55,77 @@ background-position: center center;
 
 
 .animation-element {
-  -webkit-animation-duration: 1s; /*This is the animation duration */
+   -webkit-animation-duration: 1s; /*This is the animation duration */
    -webkit-animation-delay: -300ms;
 
 
 }
 
 #dois {
-background:#2E112D;
+background:#0F1E25;
+}
+
+.somos{
+
+    display: inline-block;
+    font-size:2em;
+}
+
+
+.somos span{
+    color: white
+
+
+}
+
+.img-c{
+    max-width: 200px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 100px;
+    padding-bottom:20px;
+    -webkit-animation-duration: 2s; /*This is the animation duration */
+    -webkit-animation-delay: 0ms;
+}
+
+#somos1{
+    -webkit-animation-duration: 1500ms;
+}
+
+#somos2{
+     -webkit-animation-duration: 1800ms;
+}
+
+#somos3{
+     -webkit-animation-duration: 2000ms;
+}
+
+#logo{
+    margin-top:-10px;
+    width: 100%;
+    height: auto;
+    max-width: 1500px;
+    max-height: 1500px;
 }
 
 #tres {
-background:#2E112D;
+background:#0F1E25;
 }
+
+#quatro {
+background:#0F1E25;
+height: 100vh;
+text-align:center;
+padding-top: 10.5%;
+
+}
+
+#quatro h1{
+    color:white;
+    font-size:8em;
+
+}
+
 
 
 @keyframes fadein {

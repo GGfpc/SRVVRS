@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+       <link rel="stylesheet" href="{% static 'css/login-page.css' %}">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin" action="{% url 'projs:logging' %}" method="post">
+             <div class="alert alert-danger">
+    <strong>Erro!</strong> As suas credenciais não estão correctas.
+    </div>
+
+             {% csrf_token %}
+                <div class="form-group">
+                     <label>Email address</label>
+                     <input type="text" class="form-control" name="email" placeholder="Email address" required>
+                </div>
+                <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" name="pwd" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+
+                </div>
+                <div class="checkbox">
+                     <label>
+                     <input type="checkbox"> keep me logged-in
+                     </label>
+                </div>
+         </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

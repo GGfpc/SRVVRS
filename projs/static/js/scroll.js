@@ -16,6 +16,18 @@ $(document).ready( function() {
         $('html, body').animate({
             scrollTop: $("#tres").offset().top
         }, 500);
+     });
+
+     $("#go4").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#quatro").offset().top
+        }, 500);
+     });
+
+       $("#scroll-button").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#down").offset().top
+        }, 500);
     });
 
 });

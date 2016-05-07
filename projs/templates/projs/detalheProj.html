@@ -19,12 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 
 </head>
 
@@ -32,7 +27,7 @@
 
     <!-- Navigation -->
 
-    <div class="navbar-wrapper">
+   <div class="navbar-wrapper">
       <div class="container">
 
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -49,21 +44,26 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-
+                <li><a href="#about" id="go1">Vai 1</a></li>
+                <li><a href="#contact" id="go2">Vai 2</a></li>
+                  <li><a href="#contact" id="go3">Vai 3</a></li>
+                  <li><a href="#contact" id="go4">Vai 4</a></li>
               </ul>
+
                 <ul class="nav navbar-nav navbar-right">
+
         <li class="dropdown">
 
             {% if user.is_authenticated  != True %}
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-			<ul id="logout" class="dropdown-menu">
+			<ul id="login" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
 								 <form action="{% url 'projs:logging' %}" method="post">
                                      {% csrf_token %}
 										<div class="form-group">
-											 <label>Email address</label>
+										 <label>Email address</label>
 											 <input type="text" class="form-control" name="email" placeholder="Email address" required>
 										</div>
 										<div class="form-group">
@@ -86,7 +86,7 @@
 			</ul>
            {% else %}
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{ user.get_username }}</b> <span class="caret"></span></a>
-			<ul id="login" class="dropdown-menu">
+			<ul id="logout" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
@@ -110,44 +110,56 @@
 
 
     <!-- Page Content -->
-    <div class="container">
-
+    <div class="container-fluid">
         <div class="row">
+            <div class="col-md-12 height-full bg" style=" background: url({{post.imagem}}); background-repeat: no-repeat; background-size:cover; background-position: center center;">
+            <div class="row "><div class="col-md-12 info-col">  <button type="button" class="btn btn-primary btn-lg" id="scroll-button">Info</button></div></div>
 
-            <div class="col-md-3">
-                <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div>
+            <div class="row button"><div class="col-md-12 name-col"> <h1>{{ post.titulo}}</h1> </div></div>
             </div>
+        <div class="row" id="proj">
+            <div class="col-md-6" id="info">
 
-            <div class="col-md-9">
 
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
-                    <div class="caption-full">
+                <hr>
+                <p>"{{ post.texto }}"</p>
+                <h4 class="text-right">-{{ post.autor }}</h4>
 
-                        <h2>{{ post.titulo }}</h2>
+                <h2 >{{post.votos}} votos</h2>
+                <br>
+                <br>
+             </div>
 
-                        <h4>{{ post.autor }}.</h4>
-                        <p>{{ post.texto }} </p>
-
-                        <h3 class="pull-right">{{post.votos}} votos</h3>
-                        <br>
-                        <br>
-
-                </div>
-
-                <div class="well">
-
-                    <div class="text-right">
-                       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Comentar</button>
+            <div class="col-md-6" id="comments">
+                <div class="well pre-scrollable" id="down">
+                    <div class="text-center">
+                       <button type="button" class="btn btn-primary btn-lg" id="float" data-toggle="modal" data-target="#myModal">Comentar</button>
                     </div>
 
+                    <hr>
+                    {% for c in lista %}
+                    <div>
+                        <span>{{c.data}}</span>
+                        <br>
+                        <br>
+                        <h3 class="pull-right">{{c.autor}}</h3>
+                        <p> - {{c.texto}}</p>
+                        <br>
+                    </div>
+                     <hr>
+                    {% endfor %}
+                </div>
 
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- /.container -->
+
+
+     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -185,38 +197,9 @@
                       </div>
 </div>
 
-                    <hr>
-                    {% for c in lista %}
-                    <div class="row animation-element" data-animation="fadeInUp">
-                        <div class="col-md-12">
-                            <h4>{{c.autor}}</h4>
-                            <span class="pull-right">{{c.data}}</span>
-                            <p>{{c.texto}}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-
-      <div class="animation-element" data-animation="fadeInRight">
-          <img  src="http://icons.iconarchive.com/icons/martz90/circle/512/camera-icon.png">
-      </div>
-    </div>
-
  </body>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
     <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/animate.js' %}"></script>
 </html>

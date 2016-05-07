@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/animate.js' %}"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
 
 
 
@@ -38,21 +37,26 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-
+                <li><a href="#about" id="go1">Vai 1</a></li>
+                <li><a href="#contact" id="go2">Vai 2</a></li>
+                  <li><a href="#contact" id="go3">Vai 3</a></li>
+                  <li><a href="#contact" id="go4">Vai 4</a></li>
               </ul>
+
                 <ul class="nav navbar-nav navbar-right">
+
         <li class="dropdown">
 
             {% if user.is_authenticated  != True %}
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-			<ul id="logout" class="dropdown-menu">
+			<ul id="login" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
 								 <form action="{% url 'projs:logging' %}" method="post">
                                      {% csrf_token %}
 										<div class="form-group">
-											 <label>Email address</label>
+										 <label>Email address</label>
 											 <input type="text" class="form-control" name="email" placeholder="Email address" required>
 										</div>
 										<div class="form-group">
@@ -75,7 +79,7 @@
 			</ul>
            {% else %}
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{ user.get_username }}</b> <span class="caret"></span></a>
-			<ul id="login" class="dropdown-menu">
+			<ul id="logout" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
@@ -106,33 +110,31 @@
       </div>
     </div>
 
-    <div class="animation-element slide-left testimonial">
+    <div class="proj-container">
     <div class="projs">
         {% for p in post %}
         <form action="{% url 'projs:voto' p.id %}" method="post">
             {% csrf_token %}
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-             <h2>{{ p.titulo }}</h2>
-             <h4>Autor: {{p.autor }}</h4>
-             <p>{{ p.votos }}</p>
-            <p>{{ p.texto }}</p>
-             <p><input type="submit" class="btn btn-default btn-lg" value="Votar"></p>
+        <div class="col-lg-4 animation-element" data-animation="slideInUp" id="square" style="background-image: url({{p.imagem}}">
+
+
 
 
             </form>
         <form action="{% url 'projs:detalheProj' p.id %}" method="post">
                  {% csrf_token %}
-                 <input type="submit" class="btn btn-default btn-lg" value="Detalhe">
+                 <input type="submit" class="btn btn-default btn-lg btn-block text" value="{{ p.titulo }}">
              </form>
         </div><!-- /.col-lg-4 -->
         {% endfor %}
     </div>
-        </div>
+
 
 
 </body>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/animate.js' %}"></script>
 </html>

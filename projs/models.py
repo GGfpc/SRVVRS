@@ -18,6 +18,7 @@ class Projecto(models.Model):
     votos = models.IntegerField(default=0)
     texto = models.TextField(max_length=2000,default="")
     data = models.DateTimeField(default=timezone.now)
+    imagem = models.TextField(max_length=300,default="")
 
     def publicaProj(self):
         self.data = timezone.now()

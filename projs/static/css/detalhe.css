@@ -5,39 +5,163 @@
  */
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background:#2E112D;
 }
 
-.thumbnail img {
-    width: 100%;
+.row{
+
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+
+
 }
 
-#texto-comment{
-min-width:100%;
-min-height:200px;
-margin-bottom:20px;
+p{
+    font-size:14pt;
+    padding-left:30px;
 }
 
-.caption-full{
-
-    minimum-height: 500px;
+hr{
+ border-color: #0F1E25;
+ opacity:0.05;
 }
 
-.ratings {
-    padding-right: 10px;
-    padding-left: 10px;
-    color: #d17581;
+.well{
+    border:none;
+   box-shadow: inset 0px 6px 6px -2px rgba(0,0,0,0.68);
+    min-height: 100%;
+    margin-bottom:0px;
+    margin-left :0px;
+    border-radius:0px;
+    width:100%;
+    background:white;
+    opacity:0.97;
 }
 
-.thumbnail {
-    padding: 0;
+.well h2{
+    color: #2E112D;
+    opacity:0.6;
+    text-align:left;
 }
 
-.thumbnail .caption-full {
-    padding: 9px;
-    color: #333;
+#scroll-button{
+
+    padding: 20px;
+    font-size: 40px;
+     border-radius:50px;
+     background: rgba(0,0,0,0.4);
+     border-width:5px;
+     border-color: white;
+     opacity:0.8;
 }
 
-footer {
-    margin: 50px 0;
+#comments{
+    overflow: hidden;
+    height: 60vh;
+    padding-bottom:0px;
+    margin-bottom:-20px;
+    padding-left:0;
+    padding-right: 0px;
+
 }
+
+#float{
+
+     background:#0F1E25!important;
+     border-width:3px;
+     border-color:#0F1E25;
+     border-radius: 90px;
+     width:100%;
+     height:100%;
+     font-size:1,5em;
+     padding:5!important;
+
+}
+
+
+
+
+
+#info{
+    text-color:white;
+    height: 60vh;
+    background:#0F1E25;
+    box-shadow: inset 0px 10px 12px -7px rgba(0,0,0,0.75);
+}
+
+#proj{
+     height: 60vh;
+     margin-bottom: -20px;
+
+}
+
+.container-fluid{
+    padding-right:0;
+}
+
+.info-col{
+display:flex;
+justify-content:center;
+align-items:center;
+padding-top:100px;
+height:60vh;
+}
+
+.name-col{
+display:flex;
+justify-content:center;
+align-items:center;
+
+margin-top:px;
+height:40vh;
+}
+
+.button{
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+#info p{
+    color:white;
+    padding-left:30px;
+    padding-right:60px;
+    font-size:130%;
+    text-align:justify;
+}
+
+h1{
+    left:100%;
+    color:white;
+    font-size:10vw;
+    opacity:0.8;
+    padding-left:0px;
+    text-transform: uppercase;
+}
+
+h2{
+    font-size:11vw;
+    text-align:center;
+    color:white;
+    padding-top:30px;
+    opacity: 0.2;
+    margin-bottom:-35px;
+}
+
+h4{
+    padding-right:80px;
+    color:white;
+    opacity:0.6;
+}
+
+
+.height-full{
+ height: 100vh;
+
+
+ }
+
+

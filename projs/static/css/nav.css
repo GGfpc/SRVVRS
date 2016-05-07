@@ -23,11 +23,15 @@
 .navbar-wrapper .navbar .container {
   width: auto;
 }
+
+
 .navbar{
-   background: transparent;
-   border-color: transparent;
+
+    background: transparent;
+    border-radius:0px;
+    border:none;
 }
 .active{
 background:white
-background:rgba(0,0,0,0.5);
+
 }
