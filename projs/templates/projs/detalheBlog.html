@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+{% extends "projs/navbar.html" %}
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{post.titulo}}</title>
+
+    <!-- Bootstrap Core CSS -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/actual-blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:400,100,300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    {% block content %}
+     <link rel="stylesheet" href="{% static 'css/actual-blog.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:400,100,300' rel='stylesheet' type='text/css'>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)),url({{post.imagem}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{post.titulo}}</h1>
+                        <h2 class="subheading">{{post.subtitulo}}</h2>
+                        <span class="meta">Por {{post.autor}} em {{post.data}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <p><p>{{ post.texto|linebreaks }}</p></p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+{% extends "projs/navbar.html" %}
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SRVVRS Blog</title>
+
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+
+
+</head>
+
+<body>
+
+    {% block content %}
+        <link rel="stylesheet" href="{% static 'css/actual-blog.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:400,100,300' rel='stylesheet' type='text/css'>
+
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('http://technozed.com/wp-content/uploads/2016/03/firewatch-wallpaper-7.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>SRVVRS BLOG</h1>
+                        <hr class="small">
+                        <span class="subheading">As nossas últimas novidades</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% for p in posts %}
+                <div class="post-preview">
+                    <a href="{% url 'projs:detalheBlog' p.id %} ">
+                        <h2 class="post-title">
+                        {{p.titulo}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{p.subtitulo}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Por {{p.autor}}</a> em {{p.data}}</p>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+
+    {% endblock %}
+</body>
+
+</html>

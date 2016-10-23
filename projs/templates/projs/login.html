@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Login</title>
 
     <!-- Bootstrap core CSS -->
      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -20,14 +20,19 @@
     <div class="container">
 
       <form class="form-signin" action="{% url 'projs:logging' %}" method="post">
+
+            {% if error < 10 %}
              <div class="alert alert-danger">
     <strong>Erro!</strong> As suas credenciais não estão correctas.
+
     </div>
+          {% endif %}
 
              {% csrf_token %}
+
                 <div class="form-group">
-                     <label>Email address</label>
-                     <input type="text" class="form-control" name="email" placeholder="Email address" required>
+                     <label>Username</label>
+                     <input type="text" class="form-control" name="email" placeholder="Username" required>
                 </div>
                 <div class="form-group">
                      <label>Password</label>

@@ -3,9 +3,9 @@
 /* Padding below the footer and lighter body text */
 
 body {
+background:#0F1E25;
 
-
-  color: background:#0F1E25;
+overflow-x: hidden;
 }
 
 .revealOnScroll { opacity: 0; }
@@ -34,6 +34,63 @@ body {
     margin-top:-10px;
 }
 
+.quem{
+     font-family: 'Roboto Slab', serif;
+    color:white;
+}
+
+.img-right{
+    padding-left:50px;
+
+
+}
+
+.projecto{
+    margin-top: 50px;
+
+
+}
+
+.projs:hover{
+   padding: 20px;
+    font-size: 40px;
+     border-radius:50px;
+     background: rgba(0,0,0,0.4);
+     border-width:5px;
+     border-color: white;
+     color:white;
+     opacity:0.8;
+}
+
+
+.projs{
+    font-family: 'Roboto', serif;
+    font-weight:300;
+    max-width:150px;
+    padding: 20px;
+    font-size: 25px;
+     border-radius:50px;
+     background: rgba(0,0,0,0.4);
+     border-width:2px;
+     border-color: white;
+     color:white;
+     opacity:0.8;
+}
+
+
+.projs:hover{
+    font-family: 'Roboto', serif;
+    font-weight:300;
+    max-width:150px;
+    padding: 20px;
+    font-size: 25px;
+     border-radius:50px;
+     background: rgba(0,0,0,0.4);
+     border-width:2px;
+     border-color: white;
+     color:white;
+     opacity:0.8;
+}
 
 
 .height-full {
@@ -42,6 +99,7 @@ body {
   align-items: center;
   padding-left: 100px;
   padding-right: 100px;
+  justify_content:center;
 }
 
 #um {
@@ -56,7 +114,7 @@ background-position: center center;
 
 .animation-element {
    -webkit-animation-duration: 1s; /*This is the animation duration */
-   -webkit-animation-delay: -300ms;
+   -webkit-animation-delay: 0 ms;
 
 
 }
@@ -68,12 +126,15 @@ background:#0F1E25;
 .somos{
 
     display: inline-block;
-    font-size:2em;
+
 }
 
 
 .somos span{
-    color: white
+     font-family: 'Roboto', serif;
+    color:#F0F0F0;
+    font-weight: 100;
+    font-size:2em;
 
 
 }
@@ -89,6 +150,7 @@ background:#0F1E25;
 }
 
 #somos1{
+
     -webkit-animation-duration: 1500ms;
 }
 
@@ -126,6 +188,37 @@ padding-top: 10.5%;
 
 }
 
+#under{
+     font-family: 'Roboto', serif;
+     font-weight:400;
+
+
+}
+
+.lead{
+    font-family: 'Roboto', serif;
+    color:#F0F0F0;
+    padding-left:300px;
+    padding-right:300px;
+    font-weight:100;
+    text-align:center;
+    padding-bottom:50px;
+}
+
+
+
+.mac{
+    padding-bottom: 100px;
+
+}
+
+.featurette-heading{
+    margin-top:-50px;
+    font-family: 'Roboto Slab', serif;
+    color:white;
+    padding-bottom:50px;
+    text-align:center;
+}
 
 
 @keyframes fadein {

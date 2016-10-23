@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+{% extends "projs/navbar.html" %}
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+
+
+
+  </head>
+
+  <body>
+    {% block content %}
+
+         <link rel="stylesheet" href="{% static 'css/dash.css' %}">
+    <div class="container-fluid dash">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a data-toggle="pill" href="#home">Comentários</a></li>
+            <li><a data-toggle="pill" href="#empregados">Empregados</a></li>
+            <li><a data-toggle="pill" href="#projectos">Projectos</a></li>
+              {% if user.is_superuser %}
+              <li><a data-toggle="pill" href="#utilizadores">Utilizadores</a></li>
+              {% endif %}
+                 <li><a data-toggle="pill" href="#blogposts">Blog Posts</a></li>
+          </ul>
+          </div>
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Dashboard</h1>
+
+         <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                  <table class="table">
+                      <thead>
+                        <tr>
+                            <th>id</th>
+                          <th>Utilizador</th>
+                          <th>Comentário</th>
+                          <th>Data</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for c in comments %}
+                        <tr>
+                          <td>{{c.id}}</td>
+                          <td>{{c.autor}}</td>
+                          <td>{{c.texto}}</td>
+                          <td>{{c.data}}</td>
+                            <td>
+                                <form action="{% url 'projs:apagaComment' c.id %}" method="post">
+                                     {% csrf_token %}
+                                <input type="submit" value="X">
+                                </form>
+                            </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+              </div>
+              <div id="projectos" class="tab-pane fade">
+                 <table class="table">
+                      <thead>
+                        <tr>
+                            <th>id</th>
+                          <th>Nome</th>
+                          <th>Autor</th>
+                          <th>Data</th>
+                            <th>Votos</th>
+                             <th><button type="button" class="btn btn-primary btn-lg plus" data-toggle="modal" data-target="#criaProjModal"> <span class="glyphicon glyphicon-plus"></span></button></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for p in projs %}
+                        <tr>
+                          <td>{{p.id}}</td>
+                          <td>{{p.titulo}}</td>
+                          <td>{{p.autor.nome}}</td>
+                          <td>{{p.data}}</td>
+                            <td>{{p.votos}}</td>
+                            <td>
+                                <form action="{% url 'projs:apagaProj' p.id %}" method="post">
+                                     {% csrf_token %}
+                                <button class="rem" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+                                </form>
+                            </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+              </div>
+             <div id="blogposts" class="tab-pane fade">
+                 <table class="table">
+                      <thead>
+                        <tr>
+                            <th>id</th>
+                          <th>Nome</th>
+                          <th>Autor</th>
+                          <th>Data</th>
+                             <th><button type="button" class="btn btn-primary btn-lg plus" data-toggle="modal" data-target="#criaBlogPostModal"> <span class="glyphicon glyphicon-plus"></span></button></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for b in blogposts %}
+                        <tr>
+                          <td>{{b.id}}</td>
+                          <td>{{b.titulo}}</td>
+                          <td>{{b.autor.nome}}</td>
+                          <td>{{b.data}}</td>
+
+                            <td>
+                                <form action="{% url 'projs:apagaBlogPost' b.id %}" method="post">
+                                     {% csrf_token %}
+                                <button class="rem" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+                                </form>
+                            </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+              </div>
+             {% if user.is_superuser %}
+             <div id="utilizadores" class="tab-pane fade">
+                 <table class="table">
+                      <thead>
+                        <tr>
+                            <th>id</th>
+                          <th>Username</th>
+                          <th>Nome</th>
+                          <th>Tipo</th>
+                             <th><button type="button" class="btn btn-primary btn-lg plus" data-toggle="modal" data-target="#criaUserModal"><span class="glyphicon glyphicon-plus"></button></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for u in users %}
+
+                        <tr>
+                          <td>{{u.id}}</td>
+                          <td>{{u.username}}</td>
+                          <td>{{u.first_name}}</td>
+                          <td>{{p.is_superuser}}</td>
+                            {% if u != user%}
+                            <td>
+                                <form action="{% url 'projs:apagaUser' u.id %}" method="post">
+                                     {% csrf_token %}
+                                 <button class="rem" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+                                </form>
+                            </td>
+                            {% endif %}
+                        </tr>
+
+                      {% endfor %}
+                      </tbody>
+                    </table>
+              </div>
+             {% endif %}
+              <div id="empregados" class="tab-pane fade">
+                  <table class="table">
+                      <thead>
+                        <tr>
+                            <th>id</th>
+                          <th>Nome</th>
+                          <th>Posição</th>
+                          <th>Username</th>
+                            <th><button type="button" class="btn btn-primary btn-lg plus" data-toggle="modal" data-target="#criaEmpregadoModal"><span class="glyphicon glyphicon-plus"></button></th>
+
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for e in empregados %}
+                        <tr>
+                          <td>{{e.id}}</td>
+                          <td>{{e.nome}}</td>
+                          <td>{{e.titulo}}</td>
+                          <td>{{e.user.username}}</td>
+                            <td>
+                                <form action="{% url 'projs:apagaEmpregado' e.id %}" method="post">
+                                     {% csrf_token %}
+                                 <button class="rem" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+                                </form>
+                            </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+        </div>
+
+
+          </div>
+        </div>
+
+        <!-- ProjModal -->
+        <div class="modal fade" id="criaProjModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <form action="{% url 'projs:criaProj' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in projform %}
+                        {% for error in field.errors %}
+                        <div class="alert alert-error">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                    <div class="form-group">
+                        {{ field.errors }}
+                        {{ field.label_tag }}
+                        {{ field }}
+
+                        {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <div class="modal-footer">
+                        <input type="submit"  class="btn btn-primary" value="Submit" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                </form>
+
+            </div>
+          </div>
+        </div>
+       </div>
+
+     <!-- PostModal -->
+        <div class="modal fade" id="criaBlogPostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="blogModalLabel">Novo BlogPost</h4>
+              </div>
+              <div class="modal-body">
+                <form action="{% url 'projs:criaProj' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in blogform %}
+                        {% for error in field.errors %}
+                        <div class="alert alert-error">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                    <div class="form-group">
+                        {{ field.errors }}
+                        {{ field.label_tag }}
+                        {{ field }}
+
+                        {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <div class="modal-footer">
+                        <input type="submit"  class="btn btn-primary" value="Submit" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                </form>
+
+            </div>
+          </div>
+        </div>
+       </div>
+
+<!-- ProjModal -->
+        <div class="modal fade" id="criaUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="userModalLabel">Novo Utilizador</h4>
+              </div>
+              <div class="modal-body">
+                <form action="{% url 'projs:criaUser' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in userform %}
+                        {% for error in field.errors %}
+                        <div class="alert alert-error">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                    <div class="form-group">
+                        {{ field.errors }}
+                        {{ field.label_tag }}
+                        {{ field }}
+
+                        {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <div class="modal-footer">
+                        <input type="submit"  class="btn btn-primary" value="Submit" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                </form>
+
+            </div>
+          </div>
+        </div>
+       </div>
+
+
+              <!-- ProjModal -->
+        <div class="modal fade" id="criaEmpregadoModal" tabindex="-1" role="dialog" aria-labelledby="empregadoModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="empregadoModalLabel">Novo Empregado</h4>
+              </div>
+              <div class="modal-body">
+                <form action="{% url 'projs:criaEmpregado' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in empregadoform %}
+                        {% for error in field.errors %}
+                        <div class="alert alert-error">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                    <div class="form-group">
+                        {{ field.errors }}
+                        {{ field.label_tag }}
+                        {{ field }}
+
+                        {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <div class="modal-footer">
+                        <input type="submit"  class="btn btn-primary" value="Submit" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                </form>
+
+            </div>
+          </div>
+        </div>
+            </div>
+
+{% endblock %}
+
+  </body>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+</html>

@@ -8,6 +8,7 @@
   right: 0;
   left: 0;
   z-index: 20;
+
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -24,9 +25,36 @@
   width: auto;
 }
 
+.navbar-brand{
+font-family: 'Roboto Slab', serif;
+    color:white;
+    font-size:30px!important;
+
+}
+
+
+
+
+.navbar a{
+    font-size:18px;
+    color:white!important;;
+    text-shadow: none !important;
+
+
+}
+.navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+
+     background-color:rgba(255,255,255,.4);
+
+}
 
 .navbar{
-
+    height: 70px;
+    padding-top:10px;
+    font-size: 15px;
+    font-family: 'Roboto', serif;
+    margin-right:30px;
+    padding-right:20px;
     background: transparent;
     border-radius:0px;
     border:none;

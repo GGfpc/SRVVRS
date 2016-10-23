@@ -24,6 +24,12 @@ $(document).ready( function() {
         }, 500);
      });
 
+     $("#go5").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#cinco").offset().top
+        }, 500);
+     });
+
        $("#scroll-button").click(function() {
         $('html, body').animate({
             scrollTop: $("#down").offset().top

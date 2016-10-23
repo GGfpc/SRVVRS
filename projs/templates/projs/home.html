@@ -1,108 +1,18 @@
 <!DOCTYPE html>
+{% extends "projs/navbar-home.html" %}
 
 {% load staticfiles %}
 <html lang="en">
 <head>
+    <title>Home</title>
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
-
-
-
-
-
-    <meta charset="UTF-8">
-    <title>Title</title>
 </head>
 <body>
 
-<div class="navbar-wrapper">
-      <div class="container">
+{% block content %}
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Project name</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about" id="go1">Vai 1</a></li>
-                <li><a href="#contact" id="go2">Vai 2</a></li>
-                  <li><a href="#contact" id="go3">Vai 3</a></li>
-                  <li><a href="#contact" id="go4">Vai 4</a></li>
-              </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-
-        <li class="dropdown">
-
-            {% if user.is_authenticated  != True %}
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-			<ul id="login" class="dropdown-menu">
-				<li>
-					 <div class="row">
-							<div class="col-md-12">
-								 <form action="{% url 'projs:logging' %}" method="post">
-                                     {% csrf_token %}
-										<div class="form-group">
-										 <label>Email address</label>
-											 <input type="text" class="form-control" name="email" placeholder="Email address" required>
-										</div>
-										<div class="form-group">
-											 <label>Password</label>
-											 <input type="password" class="form-control" name="pwd" placeholder="Password" required>
-										</div>
-										<div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-
-										</div>
-										<div class="checkbox">
-											 <label>
-											 <input type="checkbox"> keep me logged-in
-											 </label>
-										</div>
-								 </form>
-							</div>
-					 </div>
-				</li>
-			</ul>
-           {% else %}
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{ user.get_username }}</b> <span class="caret"></span></a>
-			<ul id="logout" class="dropdown-menu">
-				<li>
-					 <div class="row">
-							<div class="col-md-12">
-                                 <form action="{% url 'projs:logging' %}" method="post">
-                                     {% csrf_token %}
-                                     <button type="submit" class="btn btn-primary btn-block" name="logout" >Logout</button>
-                                 </form>
-							</div>
-					 </div>
-				</li>
-			</ul>
-            {% endif %}
-        </li>
-      </ul>
-            </div>
-          </div>
-        </nav>
-
-      </div>
-    </div>
-
-
-
+ <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:400,100,300' rel='stylesheet' type='text/css'>
 
 <div class="container-fluid height-full bg-dark" id="um">
       <div class="row featurette">
@@ -113,35 +23,57 @@
 
        <div class="container-fluid height-full bg-dark" id="dois">
       <div class="row featurette" >
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">First featurette heading. <span>It'll blow your mind.</span></h2>
-          <p class="lead">Donec hiohio coiso ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div class="col-md-12">
+          <center><h2 class="featurette-heading">Olá!</h2></center>
+          <p class="lead">Somos uma empresa dedicada à criação de projectos informáticos. Trabalhamos em diversas áreas, desde web a projectos relacionados com Internet of things. O nosso lema é "Nada é impossivel enquanto o google existir"</p>
         </div>
       </div>
            </div>
 
+     <<div class="container-fluid height-full bg-dark " id="cinco">
+      <div class="row featurette" >
+        <div class="col-md-11 col-md-push-1">
+          <h2  class="featurette-heading projecto">Projectos de qualidade inegável
+             <br> <span class="small">Veja você mesmo</span></h2>
+            < <form action="{% url 'projs:lista_de_projectos' %}" method="post">
+                 {% csrf_token %}
+                <center> <input type="submit" class="btn btn-default btn-lg btn-block projs" value="Ver mais"></center>
+             </form>
+        </div>
+      </div>
+        <div class="img-right">
+            <img class="animation-element" data-animation="fadeInRight" width="120%" height="120%" src="https://onsen.io/images/index/keyvisual.png">
+
+        </div>
+           </div>
+
+
+
+
+
 
     <div class="container-fluid height-full bg-dark" id="tres">
       <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">Its'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div class="col-md-12">
+          <h2  class="featurette-heading">A sua visão tornada realidade
+             <br> <span class="small" id="under">Em qualquer plataforma</span></h2>
+
         </div>
-         <div class="animation-element" data-animation="fadeInRight">
-          <img  src="http://icons.iconarchive.com/icons/martz90/circle/512/camera-icon.png">
-        </div>
+
+          <center><img class="animation-element mac" data-animation="fadeInUp" width="80%" height="80%" src="http://mcleanmobile.com/Listastic/img/listasticfleet3.png"></center>
+
         </div>
 </div>
  <div class="container-fluid bg-dark" id="quatro">
 
-        <h1>Quem Somos?</h1>
+        <h1 class="quem">Quem Somos?</h1>
         <div class="somos animation-element" id="somos1" data-animation="fadeInRightBig"> <img id="img1" class="img-c"  src="{% static 'images/face.png' %}"><br><span>Gonçalo <br> CEO</span></div>
-        <div class="somos animation-element" id="somos2" data-animation="fadeInRightBig"> <img id="img2" class="img-c" src="{% static 'images/face.png' %}"><br><span>Gonçalo <br> CEO</span></div>
-        <div class="somos animation-element" id="somos3" data-animation="fadeInRightBig"> <img id="img3" class="img-c" src="{% static 'images/face.png' %}"><br><span>Gonçalo <br> CEO</span></div>
+        <div class="somos animation-element" id="somos2" data-animation="fadeInRightBig"> <img id="img2" class="img-c" src="{% static 'images/face2.png' %}"><br><span>Tiago <br>CTO</span></div>
+        <div class="somos animation-element" id="somos3" data-animation="fadeInRightBig"> <img id="img3" class="img-c" src="{% static 'images/face3.png' %}"><br><span>Marco<br>CFO</span></div>
 
 
     </div>
-
+{% endblock %}
 
 
 

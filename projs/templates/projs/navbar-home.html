@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:400,100,300' rel='stylesheet' type='text/css'>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
+
+</head>
+<body>
+
+
+<div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">SRVVRS</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#" id="go1">Home</a></li>
+                <li><a href="/#about" id="go2">About</a></li>
+                <li><a href="/#projectos" id="go5">Projectos</a></li>
+                  <li><a href="/#plataformas" id="go3">Plataformas</a></li>
+                  <li><a href="/#equipa" id="go4">Quem Somos</a></li>
+                   <li><a href="/blog">Blog</a> </li>
+              </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+
+            {% if user.is_authenticated  != True %}
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+			<ul id="login" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+								 <form action="{% url 'projs:logging' %}" method="post">
+                                     {% csrf_token %}
+										<div class="form-group">
+										 <label>Username</label>
+											 <input type="text" class="form-control" name="email" placeholder="Username" required>
+										</div>
+										<div class="form-group">
+											 <label>Password</label>
+											 <input type="password" class="form-control" name="pwd" placeholder="Password" required>
+										</div>
+										<div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+
+										</div>
+										<div class="checkbox">
+											 <label>
+											 <input type="checkbox"> keep me logged-in
+											 </label>
+										</div>
+								 </form>
+							</div>
+					 </div>
+				</li>
+			</ul>
+           {% else %}
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{ user.get_username }}</b> <span class="caret"></span></a>
+			<ul id="logout" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+                                <center>
+                                 <form action="{% url 'projs:logging' %}" method="post">
+                                     {% csrf_token %}
+                                     <button type="submit" class="btn btn-primary btn-block log" name="logout" >Logout</button>
+                                 </form>
+                                <form action="{% url 'projs:dashboard' %}" method="post">
+                                     {% csrf_token %}
+                                     <button type="submit" class="btn btn-primary btn-block log" name="Dashboard" >Dashboard</button>
+                                 </form>
+                                    </center>
+							</div>
+					 </div>
+				</li>
+			</ul>
+            {% endif %}
+        </li>
+      </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+
+            {% block content %}
+            {% endblock  %}
+
+</body>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/animate.js' %}"></script>
+
+</html>
+<body>
+
+</body>
